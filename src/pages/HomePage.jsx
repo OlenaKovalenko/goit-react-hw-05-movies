@@ -15,7 +15,6 @@ const Home = () => {
         setError(false);
         const initialMovies = await fetchTrendingList();
         setMovieItems(initialMovies);
-        console.log(initialMovies);
       } catch (error) {
         setError(true);
       } finally {

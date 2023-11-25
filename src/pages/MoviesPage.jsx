@@ -1,34 +1,38 @@
 import { RevolvingDot } from "react-loader-spinner";
+import toast from 'react-hot-toast';
 import { useEffect, useState } from "react";
 import { fetchMoviesBySearch } from "api";
-import { FormSearch } from "components/Form";
+import { FormSearch } from "components/FormSearch";
+import { useSearchParams } from "react-router-dom";
+import { MovieList } from "components/MovieList";
 
 const Movies = () => {
   const [movieItems, setMovieItems] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("query");
 
   useEffect(() => {
     async function getSearchMovies() {
       try {
         setIsLoading(true);
-        setError(false);
-        const searchMovies = await fetchMoviesBySearch();
+        const searchMovies = await fetchMoviesBySearch(query);
         setMovieItems(searchMovies);
       } catch (error) {
-        setError(true);
+        toast.error('Oops! Something went wrong! Please try reloading this page! 🥹')
       } finally {
         setIsLoading(false);
       }
     }
 
-
     getSearchMovies();
-  }, []);
+  }, [query]);
 
   return (
     <div>
-      {isLoading && (
+      <FormSearch />
+
+      {query && isLoading && (
         <RevolvingDot
           radius="45"
           strokeWidth="5"
@@ -40,10 +44,8 @@ const Movies = () => {
           visible={true}
         />
       )}
-      {error && (
-        <b>Oops! Something went wrong! Please try reloading this page! 🥹</b>
-      )}
-      <FormSearch />
+      {query && (<MovieList items={movieItems} />)}
+
     </div>
   )
 }

@@ -23,8 +23,6 @@ export const AppLayout = () => {
         <Outlet />
       </main>
 
-      {/* <footer>FOOTER</footer> */}
-
       <GlobalStyle />
       <Toaster />
     </Layout>
