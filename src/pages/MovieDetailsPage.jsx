@@ -4,12 +4,10 @@ import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom"
 
 const MovieDetails = () => {
   const location = useLocation();
-  console.log(location);
   const backLinkRef = useRef(location);
 
-  const {movieId} = useParams();
+  const { movieId } = useParams();
 
-  console.log(movieId);
   const [movie, setMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,7 +18,6 @@ const MovieDetails = () => {
       try {
         setIsLoading(true);
         const fetchedMovie = await fetchMovieById(movieId);
-        console.log(fetchedMovie);
         setMovie(fetchedMovie);
       } catch (error) {
       } finally {
@@ -38,7 +35,7 @@ const MovieDetails = () => {
       <Link to={backLinkRef.current.state?.from ?? '/'}>
         <b> Go back</b>
       </Link>
-      {movie && <h1>{movieId}</h1>}
+      {movie && <h1>{movie.title}</h1>}
 
       <ul>
         <li>
