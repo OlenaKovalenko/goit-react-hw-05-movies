@@ -12,8 +12,14 @@ export const fetchTrendingList = async () => {
 
 
 
-export const fetchMoviesBySearch = async (query) => {
+export const fetchMoviesBySearch = async query => {
   const response = await axios.get(`/search/movie?query=${query}&api_key=${API_KEY}`);
+  const { results } = response.data;
+  return results;
+} 
+
+export const fetchMovieById = async movieId => {
+  const response = await axios.get(`/movie/${movieId}?api_key=${API_KEY}`);
   const { results } = response.data;
   return results;
 } 
