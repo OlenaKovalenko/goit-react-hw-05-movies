@@ -8,11 +8,6 @@ import { AppLayout } from "./AppLayout";
 export const App = () => {
   return (
     <div>
-      {/* <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
-        <NavLink to="/products">MovieDetails</NavLink>
-      </nav> */}
       <Routes>
         <Route path="/" element={<AppLayout />}>
           <Route index element={<Home />} />
