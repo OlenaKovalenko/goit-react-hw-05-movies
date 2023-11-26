@@ -10,8 +10,6 @@ export const fetchTrendingList = async () => {
   return results;
 }  
 
-
-
 export const fetchMoviesBySearch = async query => {
   const response = await axios.get(`/search/movie?query=${query}&api_key=${API_KEY}`);
   const { results } = response.data;
@@ -31,6 +29,6 @@ export const fetchMovieCast = async movieId => {
 
 export const fetchMovieReviews = async movieId => {
   const response = await axios.get(`/movie/${movieId}/reviews?api_key=${API_KEY}`);
-  const { cast } = response.data;
-  return cast;
+  const { results } = response.data;
+  return results;
 } 

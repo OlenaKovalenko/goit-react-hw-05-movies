@@ -1,5 +1,6 @@
 import { fetchMovieCast } from "api";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 import { RevolvingDot } from "react-loader-spinner";
 
 export const Cast = ({movieId}) => {
@@ -15,6 +16,7 @@ export const Cast = ({movieId}) => {
             const fetchedCast = await fetchMovieCast(movieId);
             setCastMovie(fetchedCast);
         } catch (error) {
+            toast.error('Oops! Something went wrong! Please try reloading this page! 🥹')
         } finally {
         setIsLoading(false);
         }

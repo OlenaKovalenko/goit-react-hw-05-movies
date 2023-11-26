@@ -5,6 +5,7 @@ import { fetchMovieById } from "api";
 import { SelectedMovieDetails } from "components/SelectedMovieDetails/SelectedMovieDetails";
 import { Cast } from "components/Cast/Cast";
 import { Reviews } from "components/Reviews/Reviews";
+import toast from "react-hot-toast";
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -25,6 +26,8 @@ const MovieDetails = () => {
         const fetchedMovie = await fetchMovieById(movieId);
         setSelectedMovie(fetchedMovie);
       } catch (error) {
+        toast.error('Oops! Something went wrong! Please try reloading this page! 🥹')
+
       } finally {
         setIsLoading(false);
       }
