@@ -1,6 +1,6 @@
 import { fetchMovieCast } from "api";
 import { useEffect, useState } from "react";
-// import { CastDetails } from "./CastDetails";
+import { RevolvingDot } from "react-loader-spinner";
 
 export const Cast = ({movieId}) => {
     const [castMovie, setCastMovie] = useState([]);
@@ -13,7 +13,6 @@ export const Cast = ({movieId}) => {
         try {
             setIsLoading(true);
             const fetchedCast = await fetchMovieCast(movieId);
-            console.log(fetchedCast);
             setCastMovie(fetchedCast);
         } catch (error) {
         } finally {
@@ -28,6 +27,18 @@ export const Cast = ({movieId}) => {
 
     return (
         <div>
+            {isLoading && (
+                <RevolvingDot
+                    radius="45"
+                    strokeWidth="5"
+                    color="red"
+                    secondaryColor='blue'
+                    ariaLabel="revolving-dot-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                />
+            )}
             {castMovie && castMovie.map(({ profile_path, name, character, id }) => (
                 <ul>
                     <li key={id}>

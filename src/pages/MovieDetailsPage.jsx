@@ -9,8 +9,6 @@ const MovieDetails = () => {
   const location = useLocation();
   const backLinkRef = useRef(location);
 
-  // console.log('QuizDetailsPage location: ', location);
-  // console.log('QuizDetailsPage backLinkRef: ', backLinkRef.current);
 
   const { movieId } = useParams();
 
@@ -49,7 +47,7 @@ const MovieDetails = () => {
           visible={true}
         />
       )}
-      <Link to={backLinkRef.current.state?.from ?? '/'}>
+      <Link to={backLinkRef.current.state?.from ?? '/movies'}>
         <b>◄ Go back ◄</b>
       </Link>
       {selectedMovie && (<SelectedMovieDetails movie={selectedMovie} />)
