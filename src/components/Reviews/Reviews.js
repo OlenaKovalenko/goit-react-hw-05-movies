@@ -41,7 +41,7 @@ export const Reviews = () => {
                     visible={true}
                 />
             )}
-            {reviewsMovie ? (reviewsMovie.map(({ author, content, id }) => (
+            {reviewsMovie.length > 0 ? (reviewsMovie.map(({ author, content, id }) => (
                 <ul>
                     <li key={id}>
                         <p>{`Author: ${author}`}</p>
