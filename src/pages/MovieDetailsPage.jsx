@@ -48,7 +48,7 @@ const MovieDetails = () => {
           visible={true}
         />
       )}
-      <Link to={backLinkRef.current.state?.from ?? '/movies'}>
+      <Link to={backLinkRef.current.state?.from ?? '/'}>
         <b>◄ Go back ◄</b>
       </Link>
       {selectedMovie && (<SelectedMovieDetails movie={selectedMovie} />)
