@@ -23,7 +23,7 @@ export const Cast = ({movieId}) => {
     getCast();
     }, [movieId]);
 
-    // const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
+    const defaultImg = 'https://ireland.apollo.olxcdn.com/v1/files/0iq0gb9ppip8-UA/image;s=1000x700';
 
     return (
         <div>
@@ -42,7 +42,8 @@ export const Cast = ({movieId}) => {
             {castMovie && castMovie.map(({ profile_path, name, character, id }) => (
                 <ul>
                     <li key={id}>
-                        <img src={`https://image.tmdb.org/t/p/w500/${profile_path}`} alt={name} width={250} />
+                        <img src={profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : defaultImg } alt={name} width={250}
+                        />
                         <p>{name}</p>
                         <p>{`Character: ${character}`}</p>
                     </li>

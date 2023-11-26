@@ -4,6 +4,7 @@ import { RevolvingDot } from "react-loader-spinner";
 import { fetchMovieById } from "api";
 import { SelectedMovieDetails } from "components/SelectedMovieDetails/SelectedMovieDetails";
 import { Cast } from "components/Cast/Cast";
+import { Reviews } from "components/Reviews/Reviews";
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -56,9 +57,11 @@ const MovieDetails = () => {
       <ul>
         <li>
           <NavLink to="cast"><Cast movieId={movieId} /></NavLink>
+          {/* <NavLink to="cast">cast</NavLink> */}
+
         </li>
         <li>
-          <NavLink to="reviews">Reviews</NavLink>
+          <NavLink to="reviews"><Reviews movieId={movieId} /></NavLink>
         </li>
       </ul>
 
