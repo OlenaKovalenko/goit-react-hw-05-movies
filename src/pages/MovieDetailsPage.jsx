@@ -11,9 +11,7 @@ const MovieDetails = () => {
   const location = useLocation();
   const backLinkRef = useRef(location);
 
-
   const { movieId } = useParams();
-
   const [selectedMovie, setSelectedMovie] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -59,12 +57,12 @@ const MovieDetails = () => {
       <h5>Additional infomation</h5>
       <ul>
         <li>
-          <NavLink to="cast"><Cast movieId={movieId} /></NavLink>
+          <NavLink to="cast">Cast</NavLink>
           {/* <NavLink to="cast">cast</NavLink> */}
 
         </li>
         <li>
-          <NavLink to="reviews"><Reviews movieId={movieId} /></NavLink>
+          <NavLink to="reviews">Reviews</NavLink>
         </li>
       </ul>
 

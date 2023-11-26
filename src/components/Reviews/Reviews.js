@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { RevolvingDot } from "react-loader-spinner";
 import { fetchMovieReviews } from "api";
+import { useParams } from "react-router-dom";
 
-export const Reviews = ({movieId}) => {
+export const Reviews = () => {
+    const { movieId } = useParams();
     const [reviewsMovie, setReviewsMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -26,7 +28,7 @@ export const Reviews = ({movieId}) => {
     }, [movieId]);
 
     return (
-        <div>Reviews
+        <div>
             {isLoading && (
                 <RevolvingDot
                     radius="45"
@@ -46,7 +48,7 @@ export const Reviews = ({movieId}) => {
                         <p>{ content}</p>
                     </li>
                 </ul>
-            ))) : (<div>We don't have any reviews for this movie.</div>)}
+            ))) : (<b>We don't have any reviews for this movie.</b>)}
         </div>
   )
 }

@@ -1,9 +1,11 @@
-import { fetchMovieCast } from "api";
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { RevolvingDot } from "react-loader-spinner";
+import { fetchMovieCast } from "api";
 
-export const Cast = ({movieId}) => {
+export const Cast = () => {
+    const { movieId } = useParams();
     const [castMovie, setCastMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
