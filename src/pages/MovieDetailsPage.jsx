@@ -3,8 +3,6 @@ import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom"
 import { RevolvingDot } from "react-loader-spinner";
 import { fetchMovieById } from "api";
 import { SelectedMovieDetails } from "components/SelectedMovieDetails/SelectedMovieDetails";
-import { Cast } from "components/Cast/Cast";
-import { Reviews } from "components/Reviews/Reviews";
 import toast from "react-hot-toast";
 
 const MovieDetails = () => {
@@ -58,7 +56,6 @@ const MovieDetails = () => {
       <ul>
         <li>
           <NavLink to="cast">Cast</NavLink>
-          {/* <NavLink to="cast">cast</NavLink> */}
 
         </li>
         <li>
