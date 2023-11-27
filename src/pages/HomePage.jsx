@@ -1,7 +1,7 @@
 import { fetchTrendingList } from "api";
 import { useEffect, useState } from "react";
-import { RevolvingDot } from "react-loader-spinner";
 import { MovieList } from "components/MovieList";
+import { Loader } from "components/Loader";
 
 const Home = () => {
   const [movieItems, setMovieItems] = useState([]);
@@ -30,23 +30,12 @@ const Home = () => {
   return (
     <div>
       <h1>Trending today</h1>
-      {isLoading && (
-        <RevolvingDot
-          radius="45"
-          strokeWidth="5"
-          color="red"
-          secondaryColor='blue'
-          ariaLabel="revolving-dot-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-      )}
+      {isLoading && <Loader/>}
       {error && (
         <b>Oops! Something went wrong! Please try reloading this page! 🥹</b>
       )}
-      {/* {movieItems.lenght > 0 && (<MovieList items={movieItems} />)} */}
-      <MovieList items={movieItems} />
+      {movieItems.length > 0 && (<MovieList items={movieItems} />)}
+      {/* <MovieList items={movieItems} /> */}
 
 
     </div>

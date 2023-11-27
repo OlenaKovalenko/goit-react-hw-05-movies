@@ -6,7 +6,7 @@ export const SelectedMovieDetails = ({movie:{poster_path, title, release_date, v
   
   return (
     <ContainerMovie>
-        <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : defaultImg } alt={title} width={500}/>
+        <img src={poster_path ? `https://image.tmdb.org/t/p/w500/${poster_path}` : defaultImg } alt={title} width={400}/>
         <div>
           <h1>{`${title}(${release_date.split("-")[0]})`}</h1>
           <h4>{`User Store: ${Math.round(vote_average * 10)}%`}</h4>

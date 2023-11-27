@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { RevolvingDot } from "react-loader-spinner";
 import { fetchMovieReviews } from "api";
 import { useParams } from "react-router-dom";
+import { Loader } from "components/Loader";
 
-export const Reviews = () => {
+const Reviews = () => {
     const { movieId } = useParams();
     const [reviewsMovie, setReviewsMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -29,18 +29,8 @@ export const Reviews = () => {
 
     return (
         <div>
-            {isLoading && (
-                <RevolvingDot
-                    radius="45"
-                    strokeWidth="5"
-                    color="red"
-                    secondaryColor='blue'
-                    ariaLabel="revolving-dot-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    visible={true}
-                />
-            )}
+            {isLoading && <Loader/>}
+            
             {reviewsMovie.length > 0 ? (reviewsMovie.map(({ author, content, id }) => (
                 <ul>
                     <li key={id}>
@@ -52,3 +42,5 @@ export const Reviews = () => {
         </div>
   )
 }
+
+export default Reviews;

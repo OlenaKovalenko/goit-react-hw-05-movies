@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
-import { RevolvingDot } from "react-loader-spinner";
 import { fetchMovieCast } from "api";
+import { Loader } from "components/Loader";
 
-export const Cast = () => {
+const Cast = () => {
     const { movieId } = useParams();
     const [castMovie, setCastMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -31,18 +31,8 @@ export const Cast = () => {
 
     return (
         <div>
-            {isLoading && (
-                <RevolvingDot
-                    radius="45"
-                    strokeWidth="5"
-                    color="red"
-                    secondaryColor='blue'
-                    ariaLabel="revolving-dot-loading"
-                    wrapperStyle={{}}
-                    wrapperClass=""
-                    visible={true}
-                />
-            )}
+            {isLoading && <Loader/>}
+            
             {castMovie && castMovie.map(({ profile_path, name, character, id }) => (
                 <ul>
                     <li key={id}>
@@ -57,3 +47,5 @@ export const Cast = () => {
         </div>
     )
 }
+
+export default Cast;

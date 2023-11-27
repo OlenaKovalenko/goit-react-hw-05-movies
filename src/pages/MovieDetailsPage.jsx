@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState } from "react";
 import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
-import { RevolvingDot } from "react-loader-spinner";
 import { fetchMovieById } from "api";
 import { SelectedMovieDetails } from "components/SelectedMovieDetails/SelectedMovieDetails";
 import toast from "react-hot-toast";
+import { Loader } from "components/Loader";
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -35,18 +35,7 @@ const MovieDetails = () => {
 
   return (
     <div>
-      {isLoading && (
-        <RevolvingDot
-          radius="45"
-          strokeWidth="5"
-          color="red"
-          secondaryColor='blue'
-          ariaLabel="revolving-dot-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-      )}
+      {isLoading && <Loader/>}
       <Link to={backLinkRef.current.state?.from ?? '/'}>
         <b>◄ Go back ◄</b>
       </Link>
@@ -62,8 +51,9 @@ const MovieDetails = () => {
           <NavLink to="reviews">Reviews</NavLink>
         </li>
       </ul>
-
-      <Outlet />
+      <Suspense>
+        <Outlet />
+      </Suspense> 
     </div>
   )
 }
