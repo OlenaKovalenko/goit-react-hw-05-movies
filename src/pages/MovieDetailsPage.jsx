@@ -1,9 +1,11 @@
 import { Suspense, useEffect, useRef, useState } from "react";
-import { Link, NavLink, Outlet, useLocation, useParams } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 import { fetchMovieById } from "api";
 import { SelectedMovieDetails } from "components/SelectedMovieDetails/SelectedMovieDetails";
 import toast from "react-hot-toast";
 import { Loader } from "components/Loader";
+import { AddInfo, StyledLink } from "./MovieDetailsPage.styled";
+import { WrapLink } from "components/Reviews/Reviews.styled";
 
 const MovieDetails = () => {
   const location = useLocation();
@@ -41,16 +43,16 @@ const MovieDetails = () => {
       </Link>
       {selectedMovie && (<SelectedMovieDetails movie={selectedMovie} />)
         }
-      <h5>Additional infomation</h5>
-      <ul>
+      <AddInfo>Additional infomation</AddInfo>
+      <WrapLink>
         <li>
-          <NavLink to="cast">Cast</NavLink>
+          <StyledLink to="cast">Cast</StyledLink>
 
         </li>
         <li>
-          <NavLink to="reviews">Reviews</NavLink>
+          <StyledLink to="reviews">Reviews</StyledLink>
         </li>
-      </ul>
+      </WrapLink>
       <Suspense fallback={<div>Loading...</div>}>
         <Outlet />
       </Suspense> 

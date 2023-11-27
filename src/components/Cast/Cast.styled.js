@@ -8,5 +8,4 @@ export const WrapCast = styled.ul`
 
 export const LiCast = styled.li`
     width: 250px;
-    height: 375px;
 `
