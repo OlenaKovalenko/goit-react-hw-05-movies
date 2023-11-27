@@ -5,3 +5,8 @@ export const WrapCast = styled.ul`
     flex-wrap: wrap;
     gap: 20px;
 `;
+
+export const LiCast = styled.li`
+    width: 250px;
+    height: 375px;
+`

@@ -1,4 +1,5 @@
 import { useSearchParams } from "react-router-dom"
+import { ButtonForm, Forma, InputForm } from "./FormSearch.styled";
 
 export const FormSearch = () => {
     const [, setSearchParams] = useSearchParams();
@@ -11,8 +12,8 @@ export const FormSearch = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
+        <Forma onSubmit={handleSubmit}>
+            <InputForm
                 type="text"
                 name="name"
                 id="name"
@@ -20,7 +21,7 @@ export const FormSearch = () => {
                 autoComplete="off"
                 autoFocus
             />
-            <button type="submit">Search</button>
-        </form>
+            <ButtonForm type="submit">Search</ButtonForm>
+        </Forma>
   )
 }

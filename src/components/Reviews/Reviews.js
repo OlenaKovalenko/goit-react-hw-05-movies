@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { fetchMovieReviews } from "api";
 import { useParams } from "react-router-dom";
 import { Loader } from "components/Loader";
+import { LiReviews, WrapReviews } from "./Reviews.styled";
 
 const Reviews = () => {
     const { movieId } = useParams();
@@ -32,12 +33,12 @@ const Reviews = () => {
             {isLoading && <Loader/>}
             
             {reviewsMovie.length > 0 ? (reviewsMovie.map(({ author, content, id }) => (
-                <ul>
-                    <li key={id}>
-                        <p>{`Author: ${author}`}</p>
+                <WrapReviews>
+                    <LiReviews key={id}>
+                        <p><b>Author: </b>{author}</p>
                         <p>{ content}</p>
-                    </li>
-                </ul>
+                    </LiReviews>
+                </WrapReviews>
             ))) : (<b>We don't have any reviews for this movie.</b>)}
         </div>
   )

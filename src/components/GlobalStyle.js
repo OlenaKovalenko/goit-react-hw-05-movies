@@ -33,4 +33,8 @@ ul {
   a{
     text-decoration: none;
   }
+
+  button {
+    cursor: pointer;
+  }
 `;

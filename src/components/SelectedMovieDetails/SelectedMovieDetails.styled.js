@@ -5,6 +5,8 @@ export const ContainerMovie = styled.div`
     gap: 20px;
     margin-top: 20px;
     margin-bottom: 20px;
+    border-bottom: 3px solid grey;   
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
 export const Genres = styled.p`
