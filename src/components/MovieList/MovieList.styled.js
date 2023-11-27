@@ -5,3 +5,8 @@ export const WrapMovie = styled.ul`
     flex-wrap: wrap;
     gap: 20px;
 `;
+
+export const WrapInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+`

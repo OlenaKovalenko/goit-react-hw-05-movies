@@ -1,6 +1,6 @@
 import { fetchTrendingList } from "api";
 import { useEffect, useState } from "react";
-import { MovieList } from "components/MovieList";
+import { MovieList } from "components/MovieList/MovieList";
 import { Loader } from "components/Loader";
 
 const Home = () => {

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { fetchMoviesBySearch } from "api";
 import { FormSearch } from "components/FormSearch";
 import { useSearchParams } from "react-router-dom";
-import { MovieList } from "components/MovieList";
+import { MovieList } from "components/MovieList/MovieList";
 import { Loader } from "components/Loader";
 
 const Movies = () => {

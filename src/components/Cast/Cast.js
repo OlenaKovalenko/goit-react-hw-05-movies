@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import { fetchMovieCast } from "api";
 import { Loader } from "components/Loader";
+import { WrapCast } from "./Cast.styled";
 
 const Cast = () => {
     const { movieId } = useParams();
@@ -33,16 +34,16 @@ const Cast = () => {
         <div>
             {isLoading && <Loader/>}
             
-            {castMovie && castMovie.map(({ profile_path, name, character, id }) => (
-                <ul>
+            {castMovie.length>0 ? (castMovie.map(({ profile_path, name, character, id }) => (
+                <WrapCast>
                     <li key={id}>
                         <img src={profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : defaultImg } alt={name} width={250}
                         />
                         <p>{name}</p>
                         <p>{`Character: ${character}`}</p>
                     </li>
-                </ul>
-            ))}
+                </WrapCast>
+            ))) : (<b>We don't have any information about the actors.</b>)}
 
         </div>
     )

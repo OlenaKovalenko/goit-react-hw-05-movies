@@ -10,11 +10,10 @@ export const SelectedMovieDetails = ({movie:{poster_path, title, release_date, v
         <div>
           <h1>{`${title}(${release_date.split("-")[0]})`}</h1>
           <h4>{`User Store: ${Math.round(vote_average * 10)}%`}</h4>
-        <h2>Owerview</h2>
-        <p>{overview}</p> 
-        <h3>Genres</h3>
-        <Genres>{genres.map(genre => (<span>{genre.name}</span>)) }</Genres>
-
+          <h2>Owerview</h2>
+          <p>{overview}</p> 
+          <h3>Genres</h3>
+          <Genres>{genres.map((genre, idx) => (<span key={idx}>{genre.name}</span>)) }</Genres>
         </div>
     </ContainerMovie>
   )
