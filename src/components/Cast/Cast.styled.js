@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const WrapCast = styled.ul`
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 20px;
 `;
 
 export const LiCast = styled.li`
