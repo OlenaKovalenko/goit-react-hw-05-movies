@@ -34,16 +34,16 @@ const Cast = () => {
         <div>
             {isLoading && <Loader/>}
             
+          <WrapCast>
             {castMovie.length > 0 ? (castMovie.map(({ profile_path, name, character, id }) => (
-                <WrapCast>
                     <LiCast key={id}>
                         <img src={profile_path ? `https://image.tmdb.org/t/p/w500/${profile_path}` : defaultImg } alt={name} width={250} height={375}
                         />
                         <p>{name}</p>
                         <p>{`Character: ${character}`}</p>
                     </LiCast>
-                </WrapCast>
             ))) : (<b>We don't have any information about the actors.</b>)}
+         </WrapCast>
 
         </div>
     )
